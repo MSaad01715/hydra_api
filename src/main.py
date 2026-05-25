@@ -1,11 +1,18 @@
 from fastapi import FastAPI
+from core.database import engine, Base
+from api.dependencies import xa_router
 
-app = FastAPI()
+app = FastAPI(title="Hydra Api")
+
+@app.on_event("startup")
+async def startup():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
 
 @app.get('/')
-def read_root():
-    return {"Hello":"World"}
+def hello():
+    return {"Hello", "World"}
 
-@app.get('items/{item_id}')
-def read_item(item_id: int, q: str = None):
-    return {'item_id':item_id,'q':q}
+
+app.include_router(xa_router)

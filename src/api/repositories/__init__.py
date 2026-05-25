@@ -1,0 +1,2 @@
+from .readonly.readonly_ea_repository import readonly_ea_reposotory as ReadOnly_EndItemAcronymCode_Repository
+from .writeonly.writeonly_ea_repository import writeonly_ea_reposotory as WriteOnly_EndItemAcronymCode_Repository

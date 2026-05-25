@@ -1,0 +1,1 @@
+from api.routes.xa_routes import router as xa_router
