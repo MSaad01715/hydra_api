@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent
 from sqlalchemy.orm import declarative_base
 
 # Example SQLite database
-DATABASE_URL = f"sqlite+aiosqlite:///{BASE_DIR}/db.db"
+DATABASE_URL = f"sqlite+aiosqlite:///{BASE_DIR}/db.sqlite3"
 
 # For PostgreSQL use:
 # DATABASE_URL = "postgresql+asyncpg://user:password@localhost/dbname"
