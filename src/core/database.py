@@ -4,10 +4,14 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession
 )
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+
 from sqlalchemy.orm import declarative_base
 
 # Example SQLite database
-DATABASE_URL = "sqlite+aiosqlite:///./db.db"
+DATABASE_URL = f"sqlite+aiosqlite:///{BASE_DIR}/db.db"
 
 # For PostgreSQL use:
 # DATABASE_URL = "postgresql+asyncpg://user:password@localhost/dbname"
